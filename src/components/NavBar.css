@@ -17,6 +17,7 @@
   height: 80px;
   max-width: 1500px;
   position: fixed;
+  z-index: 999;
 }
 
 .navbar-logo {
