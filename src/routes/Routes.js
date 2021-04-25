@@ -1,8 +1,9 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import HeroSection from "../components/HeroSection";
-import Books from "../components/pages/Books";
+import Books from "../components/books/Books";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile";
+import SingleBook from "../components/books/SingleBook";
 
 function Routes() {
   return (
@@ -13,6 +14,9 @@ function Routes() {
         </Route>
         <Route path="/books" exact>
           <Books />
+        </Route>
+        <Route path="/books/:id" exact>
+          <SingleBook />
         </Route>
         <Route path="/profile" exact>
           <Profile />
