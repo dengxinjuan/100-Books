@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "./Button";
-import "./NavBar.css";
+import "./Navbar.css";
 
 function NavBar() {
   const [click, setClick] = useState(false); // menu click setup
@@ -58,15 +58,21 @@ function NavBar() {
 
             <li className="nav-item">
               <Link
-                to="/signup"
+                to="/login"
                 className="nav-links-mobile"
                 onClick={closeMobileMenu}
               >
-                Sign-Up
+                LOG IN
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle="btn--outline">Sign Up</Button>}
+          {button && (
+            <Button buttonStyle="btn--outline">
+              <Link to="login" className="nav-links">
+                LOG IN
+              </Link>
+            </Button>
+          )}
         </div>
       </div>
     </div>
