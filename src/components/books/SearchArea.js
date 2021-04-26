@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const SearchArea = ({ search }) => {
   const [searchTerm, setSearchTerm] = useState(""); //set search term
+
   /*handle change*/
   const handleChange = (e) => {
     setSearchTerm(e.target.value);
@@ -13,6 +14,7 @@ const SearchArea = ({ search }) => {
     search(searchTerm.trim() || undefined);
     setSearchTerm(searchTerm.trim());
   };
+
   return (
     <div>
       <form>
