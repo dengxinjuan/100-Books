@@ -26,8 +26,11 @@ const SearchArea = ({ search }) => {
           onChange={handleChange}
         />
 
+        <label for="maxResults">{maxResults}</label>
         <input
-          type="number"
+          type="range"
+          min="1"
+          max="40"
           id="maxResults"
           placeholder="Max Results"
           value={maxResults}
