@@ -5,6 +5,7 @@ import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile";
 import SingleBook from "../components/books/SingleBook";
 import ErrorPage from "../components/ErrorPage";
+import LoginPage from "../components/auth/LoginPage";
 
 function Routes() {
   return (
@@ -21,6 +22,9 @@ function Routes() {
         </Route>
         <Route path="/profile" exact>
           <Profile />
+        </Route>
+        <Route path="/login" exact>
+          <LoginPage />
         </Route>
         <Route path="*" exact>
           <ErrorPage />
