@@ -3,6 +3,7 @@ import axios from "axios";
 import SearchArea from "./SearchArea";
 import BookCard from "./BookCard";
 import BookList from "./BookList";
+import LoadingSpinner from "../LoadingSpinner";
 const BASE_URL = "https://www.googleapis.com/books/v1/volumes?"; //the basic google api books data when loading
 
 const Books = () => {
@@ -57,7 +58,7 @@ const Books = () => {
     return cleanData;
   }
 
-  if (!theBooks) return "loading!";
+  if (!theBooks) return <LoadingSpinner />;
 
   return (
     <div>

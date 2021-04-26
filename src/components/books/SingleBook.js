@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import BookCard from "./BookCard";
+import LoadingSpinner from "../LoadingSpinner";
 
 const URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -22,7 +23,7 @@ const SingleBook = () => {
   );
 
   console.log(oneBook);
-  if (!oneBook) return "LOADING!";
+  if (!oneBook) return <LoadingSpinner />;
 
   return (
     <div>
