@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
+import BookCard from "./BookCard";
 
 const URL = "https://www.googleapis.com/books/v1/volumes";
 
@@ -25,8 +26,7 @@ const SingleBook = () => {
 
   return (
     <div>
-      {oneBook.id}
-      {oneBook.volumeInfo.title}
+      <BookCard id={oneBook.id} volumeInfo={oneBook.volumeInfo} />
     </div>
   );
 };
