@@ -26,9 +26,11 @@ const Books = () => {
     getData();
   }, []);
 
-  async function search(q) {
+  async function search(q, number) {
     try {
-      const { data } = await axios.get(`${BASE_URL}q=${q}`);
+      const { data } = await axios.get(BASE_URL, {
+        params: { q: q, maxResults: number },
+      });
 
       console.log(data);
       setTheBooks(data);
