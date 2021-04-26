@@ -32,11 +32,29 @@ const Books = () => {
         params: { q: q, maxResults: number },
       });
 
+      cleanData(data);
       console.log(data);
       setTheBooks(data);
     } catch (e) {
       console.error(e);
     }
+  }
+
+  /*function that clean the data errors, sometimes the data dont have images or date*/
+  function cleanData(data) {
+    const cleanData = data.items.map((book) => {
+      if (book.volumeInfo.hasOwnProperty("publishedDate") === false) {
+        book.volumeInfo["publishedDate"] = "0000";
+      } else if (book.volumeInfo.hasOwnProperty("imageLinks") === false) {
+        book.volumeInfo["imageLinks"] = {
+          thumbnail:
+            "https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png",
+        };
+      }
+      return book;
+    });
+
+    return cleanData;
   }
 
   if (!theBooks) return "loading!";
