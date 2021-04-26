@@ -11,7 +11,11 @@ const Books = () => {
   useEffect(() => {
     async function getData() {
       try {
-        const { data } = await axios.get(`${BASE_URL}q=storytime`);
+        /*const { data } = await axios.get(`${BASE_URL}q=storytime`);*/
+
+        const { data } = await axios.get(BASE_URL, {
+          params: { q: "kidsstory" },
+        });
 
         console.log(data);
         setTheBooks(data);
