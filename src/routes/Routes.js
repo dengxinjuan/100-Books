@@ -4,6 +4,7 @@ import Books from "../components/books/Books";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile";
 import SingleBook from "../components/books/SingleBook";
+import ErrorPage from "../components/ErrorPage";
 
 function Routes() {
   return (
@@ -20,6 +21,9 @@ function Routes() {
         </Route>
         <Route path="/profile" exact>
           <Profile />
+        </Route>
+        <Route path="*" exact>
+          <ErrorPage />
         </Route>
       </Switch>
     </div>
