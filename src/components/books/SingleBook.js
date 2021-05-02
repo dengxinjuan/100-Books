@@ -6,8 +6,8 @@ import LoadingSpinner from "../LoadingSpinner";
 
 const URL = "https://www.googleapis.com/books/v1/volumes";
 
-const SingleBook = () => {
-  const { id } = useParams();
+const SingleBook = ({ id }) => {
+  //const { id } = useParams();
   const [oneBook, setOneBook] = useState(null);
 
   useEffect(
