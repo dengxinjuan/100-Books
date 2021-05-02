@@ -16,6 +16,9 @@ const BookCard = ({ id, volumeInfo }) => {
       {publishedDate}
       description: {description}
       <img src={imageLinks.thumbnail} alt="book" />
+      <button>
+        <a href={`/books/${id}`}>View</a>
+      </button>
     </div>
   );
 };
