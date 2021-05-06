@@ -3,12 +3,18 @@ import "../App.css";
 import Button from "./common/Button";
 import "./HeroSection.css";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import UserContext from "./auth/UserContext";
 
 function HeroSection() {
+  const { currentUser } = useContext(UserContext);
   return (
     <div className="hero-container">
       <h1>READ 100 BOOKS</h1>
-      <p>What are you waiting for?</p>
+      <p>
+        Dear {currentUser ? currentUser.username : "reader"}, What are you
+        waiting for?
+      </p>
       <div className="hero-btns">
         <Link to="/books" className="btn-mobile">
           <Button

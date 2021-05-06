@@ -95,7 +95,7 @@ function App() {
     <div>
       <BrowserRouter>
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
-          <NavBar />
+          <NavBar logout={logout} />
           <Routes login={login} signup={signup} />
         </UserContext.Provider>
       </BrowserRouter>
