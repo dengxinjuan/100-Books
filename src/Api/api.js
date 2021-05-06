@@ -89,6 +89,17 @@ class BookApi {
       console.log(e);
     }
   }
+
+  /*update user info*/
+  static async saveProfile(username, data) {
+    try {
+      data["_token"] = this.token;
+      let resp = await axios.patch(`${BASE_URL}/users/${username}`, data);
+      return resp.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
 }
 
 BookApi.token =
