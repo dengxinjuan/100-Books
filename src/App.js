@@ -5,7 +5,7 @@ import Routes from "./routes/Routes";
 import { useEffect, useState } from "react";
 import BookApi from "./Api/api";
 import jwt from "jsonwebtoken";
-import LoadingSpinner from "./components/LoadingSpinner";
+import LoadingSpinner from "./components/common/LoadingSpinner";
 import UserContext from "./components/auth/UserContext";
 import useLocalStorage from "./hooks/useLocalStorage";
 

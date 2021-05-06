@@ -4,7 +4,7 @@ import Books from "../components/books/Books";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile";
 import SingleBook from "../components/books/SingleBook";
-import ErrorPage from "../components/ErrorPage";
+import ErrorPage from "../components/common/ErrorPage";
 import LoginPage from "../components/auth/LoginPage";
 import SignupPage from "../components/auth/SignupPage";
 
