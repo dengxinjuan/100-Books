@@ -7,18 +7,16 @@ import BookApi from "./Api/api";
 import jwt from "jsonwebtoken";
 import LoadingSpinner from "./components/LoadingSpinner";
 import UserContext from "./components/auth/UserContext";
+import useLocalStorage from "./hooks/useLocalStorage";
+
+// Key name for storing token in localStorage for "remember me" re-login
+export const TOKEN_STORAGE_ID = "100books-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   //const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState(null);
-
-  /*console.log(
-    jwt.decode(
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJpcmQiLCJpYXQiOjE2MjAyNDkyNDJ9.rUu4uCrZL_JBpk4ArPerKk_yRB8tclTJ0OGAs-BzmJE"
-    )
-  );*/
+  const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
   useEffect(
     function loadUserInfo() {
