@@ -28,7 +28,7 @@ const SingleBook = ({ id }) => {
     [id]
   );
 
-  console.log(oneBook);
+  //console.log(oneBook);
   if (!oneBook) return <LoadingSpinner />;
 
   return (

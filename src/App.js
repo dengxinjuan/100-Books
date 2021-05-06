@@ -5,12 +5,20 @@ import Routes from "./routes/Routes";
 import { useEffect, useState } from "react";
 import BookApi from "./Api/api";
 import jwt from "jsonwebtoken";
+import LoadingSpinner from "./components/LoadingSpinner";
+import UserContext from "./components/auth/UserContext";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
   //const [applicationIds, setApplicationIds] = useState(new Set([]));
   const [currentUser, setCurrentUser] = useState(null);
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(null);
+
+  /*console.log(
+    jwt.decode(
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJpcmQiLCJpYXQiOjE2MjAyNDkyNDJ9.rUu4uCrZL_JBpk4ArPerKk_yRB8tclTJ0OGAs-BzmJE"
+    )
+  );*/
 
   useEffect(
     function loadUserInfo() {
@@ -19,7 +27,11 @@ function App() {
       async function getCurrentUser() {
         if (token) {
           try {
-            let { username } = jwt.decode(token);
+            let decode = jwt.decode(token);
+            console.log(decode);
+
+            let username = decode.username;
+
             // put the token on the Api class so it can use it to call the API.
             BookApi.token = token;
             let currentUser = await BookApi.getTheUser(username);
@@ -44,11 +56,50 @@ function App() {
     [token]
   );
 
+  /** Handles site-wide signup.
+   *
+   * Automatically logs them in (set token) upon signup.
+   *
+   */
+  async function signup(signupData) {
+    try {
+      let { token } = await BookApi.signup(signupData);
+      setToken(token);
+      return { success: true };
+    } catch (errors) {
+      console.error("signup failed", errors);
+      return { success: false, errors };
+    }
+  }
+
+  /** Handles site-wide login.
+   */
+  async function login(loginData) {
+    try {
+      let { token } = await BookApi.login(loginData);
+      setToken(token);
+      return { success: true };
+    } catch (errors) {
+      console.error("login failed", errors);
+      return { success: false, errors };
+    }
+  }
+
+  /** handle site-wide logout */
+  function logout() {
+    setCurrentUser(null);
+    setToken(null);
+  }
+
+  if (!infoLoaded) return <LoadingSpinner />;
+
   return (
     <div>
       <BrowserRouter>
-        <NavBar />
-        <Routes />
+        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+          <NavBar />
+          <Routes login={login} signup={signup} />
+        </UserContext.Provider>
       </BrowserRouter>
     </div>
   );

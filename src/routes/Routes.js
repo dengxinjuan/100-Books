@@ -6,8 +6,9 @@ import Profile from "../components/pages/Profile";
 import SingleBook from "../components/books/SingleBook";
 import ErrorPage from "../components/ErrorPage";
 import LoginPage from "../components/auth/LoginPage";
+import SignupPage from "../components/auth/SignupPage";
 
-function Routes() {
+function Routes({ login, signup }) {
   return (
     <div>
       <Switch>
@@ -24,7 +25,10 @@ function Routes() {
           <Profile />
         </Route>
         <Route path="/login" exact>
-          <LoginPage />
+          <LoginPage login={login} />
+        </Route>
+        <Route path="/signup" exact>
+          <SignupPage signup={signup} />
         </Route>
         <Route path="*" exact>
           <ErrorPage />

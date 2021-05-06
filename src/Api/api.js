@@ -102,7 +102,7 @@ class BookApi {
   }
 }
 
-BookApi.token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJpcmQiLCJpYXQiOjE2MjAyNDkyNDJ9.rUu4uCrZL_JBpk4ArPerKk_yRB8tclTJ0OGAs-BzmJE";
+//BookApi.token =
+//"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImJpcmQiLCJpYXQiOjE2MjAyNDkyNDJ9.rUu4uCrZL_JBpk4ArPerKk_yRB8tclTJ0OGAs-BzmJE";
 
 export default BookApi;
