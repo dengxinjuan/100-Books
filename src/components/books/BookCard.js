@@ -1,4 +1,24 @@
+import { useContext, useState, useEffect } from "react";
+import UserContext from "../auth/UserContext";
+
 const BookCard = ({ id, volumeInfo }) => {
+  const { hasRead, addReadId } = useContext(UserContext);
+  const [read, setRead] = useState();
+
+  useEffect(
+    function updateRead() {
+      setRead(hasRead(id));
+    },
+    [id, hasRead]
+  );
+
+  /*handle read */
+  async function handleRead(evt) {
+    if (hasRead(id)) return;
+    addReadId(id);
+    setRead(true);
+  }
+
   let {
     title,
     authors,
@@ -18,6 +38,13 @@ const BookCard = ({ id, volumeInfo }) => {
       <img src={imageLinks.thumbnail} alt="book" />
       <button>
         <a href={`/books/${id}`}>View</a>
+      </button>
+      <button
+        className="btn btn-danger font-weight-bold text-uppercase float-right"
+        onClick={handleRead}
+        disabled={read}
+      >
+        {read ? "READ" : "Read me!"}
       </button>
     </div>
   );

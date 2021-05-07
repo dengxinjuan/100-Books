@@ -14,7 +14,7 @@ export const TOKEN_STORAGE_ID = "100books-token";
 
 function App() {
   const [infoLoaded, setInfoLoaded] = useState(false);
-  //const [applicationIds, setApplicationIds] = useState(new Set([]));
+  const [readIds, setreadIds] = useState(new Set([])); // set the reading books ids set
   const [currentUser, setCurrentUser] = useState(null);
   const [token, setToken] = useLocalStorage(TOKEN_STORAGE_ID);
 
@@ -89,12 +89,26 @@ function App() {
     setToken(null);
   }
 
+  /***add read books for the user */
+  function hasRead(id) {
+    return readIds.has(id);
+  }
+
+  /**add reads to the reads id set */
+  function addReadId(id) {
+    if (hasRead(id)) return;
+    BookApi.addRead(currentUser.username, id);
+    setreadIds(new Set([...readIds, id]));
+  }
+
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
     <div>
       <BrowserRouter>
-        <UserContext.Provider value={{ currentUser, setCurrentUser }}>
+        <UserContext.Provider
+          value={{ currentUser, setCurrentUser, hasRead, addReadId }}
+        >
           <NavBar logout={logout} />
           <Routes login={login} signup={signup} />
         </UserContext.Provider>
