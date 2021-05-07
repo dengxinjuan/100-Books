@@ -9,7 +9,7 @@ import BookApi from "../../Api/api";
 
 const Profile = () => {
   const { currentUser } = useContext(UserContext);
-  const [userData, setUserData] = useState(null);
+  /*const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     async function getData() {
@@ -25,7 +25,7 @@ const Profile = () => {
     getData();
   }, []);
 
-  if (!userData) return <LoadingSpinner />;
+  if (!userData) return <LoadingSpinner />;*/
 
   return (
     <>
@@ -35,7 +35,11 @@ const Profile = () => {
           Edit Profile
         </Link>
       </button>
-      <ProfileData currentUser={userData} />
+      {currentUser.username ? (
+        <ProfileData currentUser={currentUser} />
+      ) : (
+        <LoadingSpinner />
+      )}
     </>
   );
 };
