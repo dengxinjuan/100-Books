@@ -9,23 +9,6 @@ import BookApi from "../../Api/api";
 
 const Profile = () => {
   const { currentUser } = useContext(UserContext);
-  /*const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    async function getData() {
-      try {
-        const data = await BookApi.getTheUser(currentUser.username);
-        console.log(data);
-        setUserData(data);
-        //console.log(userData);
-      } catch (e) {
-        console.error(e);
-      }
-    }
-    getData();
-  }, []);
-
-  if (!userData) return <LoadingSpinner />;*/
 
   return (
     <>
