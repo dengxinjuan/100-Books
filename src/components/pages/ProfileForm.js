@@ -27,7 +27,7 @@ function ProfileForm() {
     lastName: currentUser.lastName,
     email: currentUser.email,
     username: currentUser.username,
-    password: "",
+    password: currentUser.password,
   });
   const [formErrors, setFormErrors] = useState([]);
 
