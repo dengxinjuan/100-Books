@@ -7,6 +7,7 @@ import SingleBook from "../components/books/SingleBook";
 import ErrorPage from "../components/common/ErrorPage";
 import LoginPage from "../components/auth/LoginPage";
 import SignupPage from "../components/auth/SignupPage";
+import ProfileForm from "../components/pages/ProfileForm";
 
 function Routes({ login, signup }) {
   return (
@@ -29,6 +30,9 @@ function Routes({ login, signup }) {
         </Route>
         <Route path="/signup" exact>
           <SignupPage signup={signup} />
+        </Route>
+        <Route path="/profileForm" exact>
+          <ProfileForm />
         </Route>
         <Route path="*" exact>
           <ErrorPage />
