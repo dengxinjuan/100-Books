@@ -34,7 +34,7 @@ function App() {
             BookApi.token = token;
             let currentUser = await BookApi.getTheUser(username);
             setCurrentUser(currentUser);
-            //setApplicationIds(new Set(currentUser.applications));
+            setreadIds(new Set(currentUser.reads)); // everytime app loads check the read ids for users
 
             console.log(currentUser);
           } catch (err) {
@@ -89,7 +89,7 @@ function App() {
     setToken(null);
   }
 
-  /***add read books for the user */
+  /***check whether the book in the read set yes or no */
   function hasRead(id) {
     return readIds.has(id);
   }
@@ -101,13 +101,26 @@ function App() {
     setreadIds(new Set([...readIds, id]));
   }
 
+  /**remove the book from read list */
+  function removeReadId(id) {
+    if (!hasRead(id)) return;
+    BookApi.removeRead(currentUser.username, id);
+    setreadIds(readIds.delete(id));
+  }
+
   if (!infoLoaded) return <LoadingSpinner />;
 
   return (
     <div>
       <BrowserRouter>
         <UserContext.Provider
-          value={{ currentUser, setCurrentUser, hasRead, addReadId }}
+          value={{
+            currentUser,
+            setCurrentUser,
+            hasRead,
+            addReadId,
+            removeReadId,
+          }}
         >
           <NavBar logout={logout} />
           <Routes login={login} signup={signup} />

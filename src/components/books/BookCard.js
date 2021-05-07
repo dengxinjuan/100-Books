@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from "react";
 import UserContext from "../auth/UserContext";
 
 const BookCard = ({ id, volumeInfo }) => {
-  const { hasRead, addReadId } = useContext(UserContext);
+  const { hasRead, addReadId, removeReadId } = useContext(UserContext);
   const [read, setRead] = useState();
 
   useEffect(
@@ -17,6 +17,13 @@ const BookCard = ({ id, volumeInfo }) => {
     if (hasRead(id)) return;
     addReadId(id);
     setRead(true);
+  }
+
+  /*delete read */
+  async function removeRead(evt) {
+    if (!hasRead(id)) return;
+    removeReadId(id);
+    setRead(false);
   }
 
   let {
@@ -45,6 +52,13 @@ const BookCard = ({ id, volumeInfo }) => {
         disabled={read}
       >
         {read ? "READ" : "Read me!"}
+      </button>
+      <button
+        className="btn btn-danger font-weight-bold text-uppercase float-right"
+        onClick={removeRead}
+        disabled={!read}
+      >
+        remove
       </button>
     </div>
   );
