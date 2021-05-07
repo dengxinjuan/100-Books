@@ -27,7 +27,7 @@ function ProfileForm() {
     lastName: currentUser.lastName,
     email: currentUser.email,
     username: currentUser.username,
-    password: currentUser.password,
+    //,password: "",
   });
   const [formErrors, setFormErrors] = useState([]);
 
@@ -131,7 +131,7 @@ function ProfileForm() {
                 onChange={handleChange}
               />
             </div>
-            <div className="form-group">
+            {/*<div className="form-group">
               <label>Password:</label>
               <input
                 type="password"
@@ -140,7 +140,7 @@ function ProfileForm() {
                 value={formData.password}
                 onChange={handleChange}
               />
-            </div>
+  </div>*/}
 
             {formErrors.length ? (
               <Alert type="danger" messages={formErrors} />
