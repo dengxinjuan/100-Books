@@ -9,7 +9,7 @@ import LoginPage from "../components/auth/LoginPage";
 import SignupPage from "../components/auth/SignupPage";
 import ProfileForm from "../components/pages/ProfileForm";
 
-function Routes({ login, signup }) {
+function Routes({ login, signup, currentUser }) {
   return (
     <div>
       <Switch>

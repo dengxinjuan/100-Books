@@ -5,7 +5,7 @@ const BookCard = ({ id, volumeInfo }) => {
   const { hasRead, addReadId, removeReadId } = useContext(UserContext);
   const [read, setRead] = useState();
 
-  React.useEffect(
+  useEffect(
     function updateRead() {
       setRead(hasRead(id));
     },
