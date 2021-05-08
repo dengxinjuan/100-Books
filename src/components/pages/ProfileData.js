@@ -18,11 +18,16 @@ const ProfileData = ({ currentUser }) => {
       }
     }
     getData();
-  }, []);
+  }, [currentUser.username, userData]);
 
   if (!userData) return <LoadingSpinner />;
   return (
     <div>
+      <label for="100books">Reading progress:</label>
+      You read {userData.reads.length} books!
+      <progress id="100books" value={userData.reads.length} max="100">
+        {userData.reads.length}
+      </progress>
       <h1>{userData.username}</h1>
       <h1>{userData.firstName}</h1>
       <h1>{userData.lastName}</h1>

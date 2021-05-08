@@ -9,16 +9,11 @@ import BookApi from "../../Api/api";
 
 const Profile = () => {
   const { currentUser } = useContext(UserContext);
-  const num = currentUser.reads.length;
 
   return (
     <>
       <h1>This is Profile page!</h1>
-      <label for="100books">Reading progress:</label>
-      You read {num} books!
-      <progress id="100books" value={num} max="100">
-        {num}
-      </progress>
+
       <button>
         <Link to="/profileForm" exact>
           Edit Profile
