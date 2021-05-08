@@ -9,10 +9,12 @@ import BookApi from "../../Api/api";
 
 const Profile = () => {
   const { currentUser } = useContext(UserContext);
+  const num = currentUser.reads.length;
 
   return (
     <>
       <h1>This is Profile page!</h1>
+      <h2>You read {num} books!</h2>
       <button>
         <Link to="/profileForm" exact>
           Edit Profile
