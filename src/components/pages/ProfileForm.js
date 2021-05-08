@@ -62,7 +62,7 @@ function ProfileForm() {
       firstName: formData.firstName,
       lastName: formData.lastName,
       email: formData.email,
-      password: formData.password,
+      //,password: formData.password,
     };
 
     let username = formData.username;
