@@ -105,7 +105,8 @@ function App() {
   function removeReadId(id) {
     if (!hasRead(id)) return;
     BookApi.removeRead(currentUser.username, id);
-    setreadIds(readIds.delete(id));
+    //console.log(readIds.delete(id));
+    //setreadIds(readIds.delete(id));
   }
 
   if (!infoLoaded) return <LoadingSpinner />;

@@ -1,16 +1,13 @@
-import { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../auth/UserContext";
 
 const BookCard = ({ id, volumeInfo }) => {
   const { hasRead, addReadId, removeReadId } = useContext(UserContext);
   const [read, setRead] = useState();
 
-  useEffect(
-    function updateRead() {
-      setRead(hasRead(id));
-    },
-    [id, hasRead]
-  );
+  React.useEffect(function updateRead() {
+    setRead(hasRead(id));
+  }, []);
 
   /*handle read */
   async function handleRead(evt) {
