@@ -1,8 +1,26 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import Alert from "../common/Alert";
+import MyAlert from "../common/Alert";
+
+//*style start here */
+
+import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+import { yellow } from "@material-ui/core/colors";
+
+//import
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: theme.spacing(3),
+    background: yellow,
+  },
+}));
 
 const LoginPage = ({ login }) => {
+  const classes = useStyles();
   const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
@@ -27,54 +45,78 @@ const LoginPage = ({ login }) => {
   }
 
   return (
-    <div>
-      <div className="LoginForm">
-        <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-          <h3 className="mb-3">Log In</h3>
+    <Container className={classes.container} maxWidth="xs">
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <h1>Log In</h1>
+              </Grid>
+              <Grid item xs={12}>
+                {/*<label>Username</label>
+                <input
+                  name="username"
+                  className="form-control"
+                  value={formData.username}
+                  onChange={handleChange}
+                  autoComplete="username"
+                  required
+                />*/}
+                <TextField
+                  fullWidth
+                  label="Username"
+                  name="username"
+                  variant="outlined"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
+                />
+              </Grid>
 
-          <div className="card">
-            <div className="card-body">
-              <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label>Username</label>
-                  <input
-                    name="username"
-                    className="form-control"
-                    value={formData.username}
-                    onChange={handleChange}
-                    autoComplete="username"
-                    required
-                  />
-                </div>
-                <div className="form-group">
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    name="password"
-                    className="form-control"
-                    value={formData.password}
-                    onChange={handleChange}
-                    autoComplete="current-password"
-                    required
-                  />
-                </div>
+              <Grid item xs={12}>
+                {/*<label>Password</label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-control"
+                  value={formData.password}
+                  onChange={handleChange}
+                  autoComplete="current-password"
+                  required
+                />*/}
 
-                {formErrors.length ? (
-                  <Alert type="danger" messages={formErrors} />
-                ) : null}
+                <TextField
+                  fullWidth
+                  label="Password"
+                  name="password"
+                  variant="outlined"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </Grid>
+            </Grid>
+          </Grid>
 
-                <button
-                  className="btn btn-primary float-right"
-                  onSubmit={handleSubmit}
-                >
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          {formErrors.length ? (
+            <MyAlert type="danger" messages={formErrors} />
+          ) : null}
+
+          <Grid item xs={12}>
+            <Button
+              color="primary"
+              fullWidth
+              type="submit"
+              variant="contained"
+              onSubmit={handleSubmit}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </Container>
   );
 };
 

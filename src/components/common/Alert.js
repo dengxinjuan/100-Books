@@ -1,22 +1,35 @@
 import React from "react";
+import { makeStyles } from "@material-ui/core/styles";
+import Alert from "@material-ui/lab/Alert";
+//import classes from "*.module.css";
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+    "& > * + *": {
+      marginTop: theme.spacing(2),
+    },
+  },
+}));
 
 /** Presentational component for showing bootstrap-style alerts.
  *
  * { LoginForm, SignupForm, ProfileForm } -> Alert
  **/
 
-function Alert({ type = "danger", messages = [] }) {
+function MyAlert({ type = "danger", messages = [] }) {
   console.debug("Alert", "type=", type, "messages=", messages);
+  const classes = useStyles();
 
   return (
-    <div className={`alert alert-${type}`} role="alert">
+    <div className={classes.root} role="alert">
       {messages.map((error) => (
         <p className="mb-0 small" key={error}>
-          {error}
+          <Alert severity="error">{error}</Alert>
         </p>
       ))}
     </div>
   );
 }
 
-export default Alert;
+export default MyAlert;
