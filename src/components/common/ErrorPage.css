@@ -2,13 +2,6 @@
   min-height: calc(100vh - 10rem);
   padding: 5rem 0;
   color: white;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(40, 44, 52, 1) 53%,
-    rgba(0, 212, 255, 1) 100%
-  );
 }
 
 .page {
