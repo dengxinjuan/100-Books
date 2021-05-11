@@ -105,7 +105,7 @@ function App() {
   function removeReadId(id) {
     if (!hasRead(id)) return;
     BookApi.removeRead(currentUser.username, id);
-    const arr = [...readIds].filter((x) => x != id);
+    const arr = [...readIds].filter((x) => x !== id);
     setreadIds(new Set(arr));
   }
 

@@ -1,9 +1,8 @@
 import UserContext from "../auth/UserContext";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import LoadingSpinner from "../common/LoadingSpinner";
 import ProfileData from "./ProfileData";
-import BookApi from "../../Api/api";
 
 //this page will dispaly user's progress, dispaply user's reads, and wishlist
 

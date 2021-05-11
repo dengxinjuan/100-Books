@@ -1,5 +1,4 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
-import HeroSection from "../components/HeroSection";
+import { Route, Switch } from "react-router-dom";
 import Books from "../components/books/Books";
 import Home from "../components/pages/Home";
 import Profile from "../components/pages/Profile";
@@ -9,7 +8,7 @@ import LoginPage from "../components/auth/LoginPage";
 import SignupPage from "../components/auth/SignupPage";
 import ProfileForm from "../components/pages/ProfileForm";
 
-function Routes({ login, signup, currentUser }) {
+function Routes({ login, signup }) {
   return (
     <div>
       <Switch>
