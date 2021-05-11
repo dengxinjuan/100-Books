@@ -1,5 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import UserContext from "../auth/UserContext";
+import Button from "../common/Button";
 
 const BookCard = ({ id, volumeInfo }) => {
   const { hasRead, addReadId, removeReadId } = useContext(UserContext);
@@ -26,14 +27,8 @@ const BookCard = ({ id, volumeInfo }) => {
     setRead(false);
   }
 
-  let {
-    title,
-    authors,
-    publisher,
-    publishedDate,
-    description,
-    imageLinks,
-  } = volumeInfo;
+  let { title, authors, publisher, publishedDate, description, imageLinks } =
+    volumeInfo;
   return (
     <div>
       {id}
@@ -46,20 +41,24 @@ const BookCard = ({ id, volumeInfo }) => {
       <button>
         <a href={`/books/${id}`}>View</a>
       </button>
-      <button
-        className="btn btn-danger font-weight-bold text-uppercase float-right"
+      <Button
+        className="btns"
+        buttonStyle="btn--outline"
+        buttonSize="btn--medium"
         onClick={handleRead}
         disabled={read}
       >
         {read ? "READ" : "Read me!"}
-      </button>
-      <button
-        className="btn btn-danger font-weight-bold text-uppercase float-right"
+      </Button>
+      <Button
+        className="btns"
+        buttonStyle="btn--primary"
+        buttonSize="btn--medium"
         onClick={removeRead}
         disabled={!read}
       >
         remove
-      </button>
+      </Button>
     </div>
   );
 };
