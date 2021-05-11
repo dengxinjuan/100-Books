@@ -9,13 +9,11 @@ import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
-import { yellow } from "@material-ui/core/colors";
 
 //import
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: theme.spacing(3),
-    background: yellow,
   },
 }));
 

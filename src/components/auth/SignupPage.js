@@ -2,7 +2,23 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import MyAlert from "../common/Alert";
 
+//*style start here */
+
+import Button from "@material-ui/core/Button";
+import Container from "@material-ui/core/Container";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import { makeStyles } from "@material-ui/core/styles";
+
+//import
+const useStyles = makeStyles((theme) => ({
+  container: {
+    padding: theme.spacing(3),
+  },
+}));
+
 const SignupPage = ({ signup }) => {
+  const classes = useStyles();
   const history = useHistory();
   const [formData, setFormData] = useState({
     username: "",
@@ -30,77 +46,134 @@ const SignupPage = ({ signup }) => {
   }
 
   return (
-    <div className="SignupForm">
-      <div className="container col-md-6 offset-md-3 col-lg-4 offset-lg-4">
-        <h2 className="mb-3">Sign Up</h2>
-        <div className="card">
-          <div className="card-body">
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Username</label>
+    <Container className={classes.container} maxWidth="xs">
+      <form onSubmit={handleSubmit}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <h1>Sign Up</h1>
+              </Grid>
+              <Grid item xs={12}>
+                {/*<label>Username</label>
                 <input
                   name="username"
                   className="form-control"
                   value={formData.username}
                   onChange={handleChange}
+                />*/}
+
+                <TextField
+                  fullWidth
+                  label="Username"
+                  name="username"
+                  variant="outlined"
+                  value={formData.username}
+                  onChange={handleChange}
+                  required
                 />
-              </div>
-              <div className="form-group">
-                <label>Password</label>
+              </Grid>
+
+              <Grid item xs={12}>
+                {/*<label>Password</label>
                 <input
                   type="password"
                   name="password"
                   className="form-control"
                   value={formData.password}
                   onChange={handleChange}
-                />
-              </div>
+                />*/}
 
-              <div className="form-group">
-                <label>First name</label>
+                <TextField
+                  fullWidth
+                  label="Password"
+                  name="password"
+                  variant="outlined"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                {/*<label>First name</label>
                 <input
                   name="firstName"
                   className="form-control"
                   value={formData.firstName}
                   onChange={handleChange}
+                />*/}
+
+                <TextField
+                  fullWidth
+                  label="First Name"
+                  name="firstName"
+                  variant="outlined"
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required
                 />
-              </div>
-              <div className="form-group">
-                <label>Last name</label>
+              </Grid>
+              <Grid item xs={12}>
+                {/*<label>Last name</label>
                 <input
                   name="lastName"
                   className="form-control"
                   value={formData.lastName}
                   onChange={handleChange}
+                />*/}
+
+                <TextField
+                  fullWidth
+                  label="Last Name"
+                  name="lastName"
+                  variant="outlined"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  required
                 />
-              </div>
-              <div className="form-group">
-                <label>Email</label>
+              </Grid>
+              <Grid item xs={12}>
+                {/*<label>Email</label>
                 <input
                   type="email"
                   name="email"
                   className="form-control"
                   value={formData.email}
                   onChange={handleChange}
+                />*/}
+
+                <TextField
+                  fullWidth
+                  label="Email"
+                  name="email"
+                  variant="outlined"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
                 />
-              </div>
+              </Grid>
+            </Grid>
 
-              {formErrors.length ? (
-                <MyAlert type="danger" messages={formErrors} />
-              ) : null}
+            {formErrors.length ? (
+              <MyAlert type="danger" messages={formErrors} />
+            ) : null}
+          </Grid>
 
-              <button
-                type="submit"
-                className="btn btn-primary float-right"
-                onSubmit={handleSubmit}
-              >
-                Submit
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
+          <Grid item xs={12}>
+            <Button
+              color="primary"
+              fullWidth
+              type="submit"
+              variant="contained"
+              onSubmit={handleSubmit}
+            >
+              Submit
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </Container>
   );
 };
 
