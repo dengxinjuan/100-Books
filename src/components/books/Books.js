@@ -62,7 +62,6 @@ const Books = () => {
 
   return (
     <div>
-      <h1>Books Here!</h1>
       <SearchArea search={search} />
       <BookList theBooks={theBooks} />
     </div>
