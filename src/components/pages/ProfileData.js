@@ -69,7 +69,7 @@ const ProfileData = ({ currentUser }) => {
             <h1>Email: {userData.email}</h1>
           </Paper>
         </Grid>
-        You already reads:
+
         {userData.reads.map((i) => (
           <SingleBook id={i} />
         ))}
