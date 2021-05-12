@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
     textAlign: "center",
     color: theme.palette.text.secondary,
+    boxShadow: 20,
   },
 }));
 
@@ -39,7 +40,6 @@ const SingleBook = ({ id }) => {
       async function get() {
         const { data } = await axios.get(`${URL}/${id}`);
         setOneBook(data);
-        console.log(data);
       }
 
       get();
