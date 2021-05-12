@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
-import UserContext from "../auth/UserContext";
+import UserContext from "../components/auth/UserContext";
 
 /** "Higher-Order Component" for private routes.
  *
@@ -13,10 +13,13 @@ function PrivateRoute({ exact, path, children }) {
   const { currentUser } = useContext(UserContext);
 
   console.debug(
-      "PrivateRoute",
-      "exact=", exact,
-      "path=", path,
-      "currentUser=", currentUser,
+    "PrivateRoute",
+    "exact=",
+    exact,
+    "path=",
+    path,
+    "currentUser=",
+    currentUser
   );
 
   if (!currentUser) {
@@ -24,9 +27,9 @@ function PrivateRoute({ exact, path, children }) {
   }
 
   return (
-      <Route exact={exact} path={path}>
-        {children}
-      </Route>
+    <Route exact={exact} path={path}>
+      {children}
+    </Route>
   );
 }
 
