@@ -48,7 +48,10 @@ const ProfileData = ({ currentUser }) => {
         <Grid item xs={12}>
           <Paper className={classes.paper}>
             <label for="100books">Reading progress:</label>
-            <h1>You read {userData.reads.length} books!</h1>
+            <h1>
+              You read {userData.reads.length} books <i class="fas fa-book"></i>
+              !
+            </h1>
 
             <LinearProgressWithLabel value={userData.reads.length} />
           </Paper>
