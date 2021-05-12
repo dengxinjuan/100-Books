@@ -1,6 +1,5 @@
 import UserContext from "../auth/UserContext";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import LoadingSpinner from "../common/LoadingSpinner";
 import ProfileData from "./ProfileData";
 
@@ -11,11 +10,6 @@ const Profile = () => {
 
   return (
     <>
-      {/*<button>
-        <Link to="/profileForm" exact>
-          Edit Profile
-        </Link>
-      </button>*/}
       {currentUser.username ? (
         <ProfileData currentUser={currentUser} />
       ) : (

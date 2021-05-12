@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
-import BookCard from "./BookCard";
 import LoadingSpinner from "../common/LoadingSpinner";
+import UserContext from "../auth/UserContext";
 
 /*style*/
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -46,6 +47,30 @@ const SingleBook = ({ id }) => {
     },
     [id]
   );
+  /* the button function*/
+  const { hasRead, addReadId, removeReadId } = useContext(UserContext);
+  const [read, setRead] = useState();
+
+  useEffect(
+    function updateRead() {
+      setRead(hasRead(id));
+    },
+    [id, hasRead]
+  );
+
+  /*handle read */
+  async function handleRead(evt) {
+    if (hasRead(id)) return;
+    addReadId(id);
+    setRead(true);
+  }
+
+  /*delete read */
+  async function removeRead(evt) {
+    if (!hasRead(id)) return;
+    removeReadId(id);
+    setRead(false);
+  }
 
   //console.log(oneBook);
   if (!oneBook) return <LoadingSpinner />;
@@ -60,9 +85,49 @@ const SingleBook = ({ id }) => {
           {oneBook.volumeInfo.publishedDate}{" "}
         </h2>
 
-        <img src={oneBook.volumeInfo.imageLinks.smallThumbnail} alt="photo" />
-        <a href={oneBook.volumeInfo.infoLink}>Go!</a>
-        <a href={oneBook.volumeInfo.previewLink}>Preview!</a>
+        <img src={oneBook.volumeInfo.imageLinks.smallThumbnail} alt="book" />
+        <div>
+          <ButtonGroup
+            color="primary"
+            aria-label="outlined primary button group"
+          >
+            <Button
+              size="small"
+              variant="contained"
+              href={oneBook.volumeInfo.infoLink}
+              target="_blank"
+            >
+              Go!
+            </Button>
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              href={oneBook.volumeInfo.previewLink}
+              target="_blank"
+            >
+              Preview!
+            </Button>
+            <Button
+              size="small"
+              variant="contained"
+              color="primary"
+              onClick={removeRead}
+              disabled={!read}
+            >
+              remove
+            </Button>
+            <Button
+              size="small"
+              variant="contained"
+              color="secondary"
+              onClick={handleRead}
+              disabled={read}
+            >
+              {read ? "READ" : "Mark As READ"}
+            </Button>
+          </ButtonGroup>
+        </div>
         <div
           dangerouslySetInnerHTML={{
             __html: oneBook.volumeInfo.description,

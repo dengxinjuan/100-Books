@@ -7,9 +7,9 @@ import LoadingSpinner from "../common/LoadingSpinner";
 /*STYEL*/
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
-import Container from "@material-ui/core/Container";
 import Paper from "@material-ui/core/Paper";
 import Button from "@material-ui/core/Button";
+import LinearProgressWithLabel from "../common/LinearProgressWithLabel";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -49,9 +49,8 @@ const ProfileData = ({ currentUser }) => {
           <Paper className={classes.paper}>
             <label for="100books">Reading progress:</label>
             <h1>You read {userData.reads.length} books!</h1>
-            <progress id="100books" value={userData.reads.length} max="100">
-              {userData.reads.length}
-            </progress>
+
+            <LinearProgressWithLabel value={userData.reads.length} />
           </Paper>
         </Grid>
         <Grid item xs={12}>
