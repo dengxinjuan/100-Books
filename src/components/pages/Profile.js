@@ -11,13 +11,11 @@ const Profile = () => {
 
   return (
     <>
-      <h1>This is Profile page!</h1>
-
-      <button>
+      {/*<button>
         <Link to="/profileForm" exact>
           Edit Profile
         </Link>
-      </button>
+      </button>*/}
       {currentUser.username ? (
         <ProfileData currentUser={currentUser} />
       ) : (
