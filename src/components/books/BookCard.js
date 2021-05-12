@@ -55,7 +55,7 @@ const BookCard = ({ id, volumeInfo }) => {
   let { title, authors, publisher, publishedDate, description, imageLinks } =
     volumeInfo;
   return (
-    <Grid item xs={4}>
+    <Grid item xs={12} sm={4}>
       <Card className={classes.root}>
         <CardHeader title={title} subheader={`By ${authors}`} />
         <CardActionArea>
