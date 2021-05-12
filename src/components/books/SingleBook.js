@@ -48,7 +48,8 @@ const SingleBook = ({ id }) => {
     [id]
   );
   /* the button function*/
-  const { hasRead, addReadId, removeReadId } = useContext(UserContext);
+  const { hasRead, addReadId, removeReadId, currentUser } =
+    useContext(UserContext);
   const [read, setRead] = useState();
 
   useEffect(
@@ -108,24 +109,28 @@ const SingleBook = ({ id }) => {
             >
               Preview!
             </Button>
-            <Button
-              size="small"
-              variant="contained"
-              color="primary"
-              onClick={removeRead}
-              disabled={!read}
-            >
-              remove
-            </Button>
-            <Button
-              size="small"
-              variant="contained"
-              color="secondary"
-              onClick={handleRead}
-              disabled={read}
-            >
-              {read ? "READ" : "Mark As READ"}
-            </Button>
+            {currentUser && (
+              <div>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="primary"
+                  onClick={removeRead}
+                  disabled={!read}
+                >
+                  remove
+                </Button>
+                <Button
+                  size="small"
+                  variant="contained"
+                  color="secondary"
+                  onClick={handleRead}
+                  disabled={read}
+                >
+                  {read ? "READ" : "Mark As READ"}
+                </Button>
+              </div>
+            )}
           </ButtonGroup>
         </div>
         <div
