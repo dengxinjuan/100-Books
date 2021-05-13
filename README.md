@@ -44,6 +44,7 @@ https://books100backend.herokuapp.com/
 - Node
 - Material UI
 - Axios
+- UseContext
 - addiontional: font-awesome, jest
 
 ### API
@@ -87,6 +88,9 @@ Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ## Front-end Logic
+
+- Books->Booklist->Bookcard(SingleBook)
+- BookApi -> App -> login/logout/add/remove
 
 ## Learn More
 
