@@ -10,7 +10,7 @@ It is a simple book app which can search and save books for user. It create a 10
 
 This Project is deployed at:
 
-Open [quirky-honey.surge.sh](quirky-honey.surge.sh)
+Open http://quirky-honey.surge.sh/
 
 Using surge to deploy the frontend
 
