@@ -4,10 +4,10 @@
 
 This Project is deployed at:
 
-quirky-honey.surge.sh
+Open [quirky-honey.surge.sh](quirky-honey.surge.sh)
 
 Using surge to deploy the frontend and use heroku to deploy the backend.
-The backend is avaialabe at:
+The backend is available at:
 
 https://books100backend.herokuapp.com/
 
@@ -43,5 +43,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
-
-# 100-Books
