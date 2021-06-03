@@ -25,6 +25,18 @@ Deployed backend at:
 
 https://books100backend.herokuapp.com/
 
+## Preview
+
+![home](./readme-img/home.png)
+![tab](./readme-img/tab.png)
+![book](./readme-img/book.png)
+![singlebook](./readme-img/singleBook.png)
+![singlebook](./readme-img/login.png)
+
+## Design
+
+![design](./readme-img/100books-frontend.png)
+
 ## Functions
 
 - User Login & Registration screens
@@ -56,14 +68,6 @@ https://developers.google.com/books/docs/v1/getting_started
 ## User
 
 It is created for reader who want to read books with a goal.
-
-## Preview
-
-![home](./readme-img/home.png)
-![tab](./readme-img/tab.png)
-![book](./readme-img/book.png)
-![singlebook](./readme-img/singleBook.png)
-![singlebook](./readme-img/login.png)
 
 ## UI
 
