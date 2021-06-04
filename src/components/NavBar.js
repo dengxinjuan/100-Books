@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import Button from "./common/Button";
-import "./Navbar.css";
+import "./NavBar.css";
 import UserContext from "./auth/UserContext";
 
 function NavBar({ logout }) {
