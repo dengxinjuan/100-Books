@@ -1,9 +1,7 @@
 import axios from "axios";
 
 const BASE_URL =
-  process.env.REACT_APP_BASE_URL ||
-  "http://localhost:3001" ||
-  "https://books100backend.herokuapp.com/";
+  process.env.REACT_APP_BASE_URL || "https://books100backend.herokuapp.com";
 
 class BookApi {
   static token;
