@@ -14,7 +14,7 @@ const Books = () => {
         /*const { data } = await axios.get(`${BASE_URL}q=storytime`);*/
 
         const { data } = await axios.get(BASE_URL, {
-          params: { q: "kids" },
+          params: { q: "love" },
         });
 
         console.log(data);
