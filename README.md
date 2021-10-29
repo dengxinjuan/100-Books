@@ -10,7 +10,7 @@ It is a simple book app which can search and save books for user. It create a 10
 
 This Project is deployed at:
 
-Open http://quirky-honey.surge.sh/
+Open https://wizardly-gates-f59e18.netlify.app/
 
 Using surge to deploy the frontend
 
